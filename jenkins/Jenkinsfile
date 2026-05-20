@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SONAR_HOST_URL = 'http://<SONARQUBE-IP>:9000'
+        SONAR_HOST_URL = 'http://3.110.117.91:9000'
     }
 
     stages {
