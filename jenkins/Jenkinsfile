@@ -23,9 +23,13 @@ pipeline {
         }
         stage('Sonar') {
             steps {
-                withCredentials([string(credentialsId: 'sonar-maven', variable: 'SONAR_TOKEN')]) {
+                withCredentials([string(credentialsId: 'maven_token', variable: 'SONAR_TOKEN')]) {
                     sh '''
-                        mvn clean verify sonar:sonar -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.token=$SONAR_TOKEN
+                        sonar-scanner \
+                        -Dsonar.projectKey=maven \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=http://13.235.86.100:9000 \
+                        -Dsonar.token=maven_token
                     '''
                 }
             }
