@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SONAR_HOST_URL = 'http://13.235.86.100:9000'
+        SONAR_HOST_URL = 'http://13.203.228.187:9000'
     }
 
     stages {
@@ -28,7 +28,7 @@ pipeline {
                         sonar-scanner \
                         -Dsonar.projectKey=maven \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url=http://13.235.86.100:9000 \
+                        -Dsonar.host.url=http://13.203.228.187:9000 \
                         -Dsonar.token=$SONAR_TOKEN
                     '''
                 }
