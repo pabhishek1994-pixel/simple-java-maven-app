@@ -29,7 +29,7 @@ pipeline {
                         -Dsonar.projectKey=maven \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=http://13.235.86.100:9000 \
-                        -Dsonar.token=sonar_server
+                        -Dsonar.token=$SONAR_TOKEN
                     '''
                 }
             }
