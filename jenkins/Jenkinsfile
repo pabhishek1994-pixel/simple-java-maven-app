@@ -1,11 +1,6 @@
 pipeline {
     agent any
-
-    environment {
-        SONAR_HOST_URL = 'http://13.203.228.187:9000'
-    }
-
-    stages {
+       stages {
 
         stage('Checkout') {
             steps {
@@ -26,9 +21,9 @@ pipeline {
                 withCredentials([string(credentialsId: 'sonar_server', variable: 'SONAR_TOKEN')]) {
                     sh '''
                         sonar-scanner \
-                        -Dsonar.projectKey=maven \
+                        -Dsonar.projectKey=java \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url=http://13.203.228.187:9000 \
+                        -Dsonar.host.url=http://3.108.54.7:9000 \
                         -Dsonar.token=$SONAR_TOKEN
                     '''
                 }
